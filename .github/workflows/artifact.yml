@@ -77,4 +77,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: 'aspnet-exercise-SHA${{ github.sha }}'
-          path: './bin/publish'
+          path: './bin/publish/win-x64'

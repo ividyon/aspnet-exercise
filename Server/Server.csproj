@@ -2,13 +2,24 @@
 
     <PropertyGroup>
         <TargetFramework>net10.0</TargetFramework>
+        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+        <PlatformTarget>x64</PlatformTarget>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <RootNamespace>aspnet_exercise</RootNamespace>
         <Title>ASP.NET Core API Exercise</Title>
         <PublishDir>..\bin\publish</PublishDir>
         <DeleteExistingFiles>true</DeleteExistingFiles>
+        <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
         <CETCompat>false</CETCompat>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(RuntimeIdentifier)' == 'win-x64'">
+        <PublishDir>..\bin\publish\win-x64</PublishDir>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(RuntimeIdentifier)' == 'linux-x64'">
+        <PublishDir>..\bin\publish\linux-x64</PublishDir>
     </PropertyGroup>
 
     <ItemGroup>
