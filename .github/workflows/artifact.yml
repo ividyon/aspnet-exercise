@@ -46,7 +46,7 @@ jobs:
           path: ${{ github.workspace }}/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-nuget-
+            ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
 
       - name: Setup .NET
         if: ${{ steps.cache-dotnet-core.outputs.cache-hit != 'true' }}
@@ -56,7 +56,7 @@ jobs:
 
       - name: Restore packages
         if: ${{ steps.cache-nuget.outputs.cache-hit != 'true' }}
-        run: dotnet restore --locked-mode ./aspnet-exercise.sln
+        run: dotnet restore -r win-x64 --locked-mode ./aspnet-exercise.sln
 
       - name: Build
         run: dotnet build -c Release --no-restore ./Tests/Tests.csproj # Builds Tests which builds Server
