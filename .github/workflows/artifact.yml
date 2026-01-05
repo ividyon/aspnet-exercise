@@ -36,8 +36,6 @@ jobs:
         with:
           path: ${{ github.workspace }}/.dotnet
           key: ${{ runner.os }}-dotnet
-          restore-keys: |
-            ${{ runner.os }}-dotnet
 
       - name: NuGet cache
         id: cache-nuget
@@ -45,8 +43,6 @@ jobs:
         with:
           path: ${{ github.workspace }}/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
 
       - name: Setup .NET
         if: ${{ steps.cache-dotnet-core.outputs.cache-hit != 'true' }}
