@@ -56,7 +56,7 @@ jobs:
 
       - name: Restore packages
         if: ${{ steps.cache-nuget.outputs.cache-hit != 'true' }}
-        run: nuget restore -LockedMode -r win-x64 ./aspnet-exercise.sln
+        run: dotnet restore --locked-mode -r win-x64 ./aspnet-exercise.sln
 
       - name: Build
         run: dotnet build -c Release -r win-x64 --no-restore ./Tests/Tests.csproj # Builds Tests which builds Server
