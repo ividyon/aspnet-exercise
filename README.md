@@ -40,3 +40,7 @@ professional setting involving the ASP.NET Core API and fundamental GitHub CI/CD
 
 - I ran into trouble with NUnit's symbols not being recognized by Rider due to starting the project with a single-folder structure. Putting the server in its own project folder resolved this problem.
 - Getting the Actions to run gave me a bit of trouble due to some issues with the handling of the package lock system in regards to specified runtime identifiers. This wasn't actually part of the task, but I decided to look into it here so that I can use the knowledge in my other projects. Specifically, I was blocked by what appears to be [known buggy behavior](https://github.com/NuGet/Home/issues/8287) with NuGet restore locked mode (packages.lock.json) and having multiple runtime identifiers. Bummer!
+
+### What I'd improve next time
+
+- Do GitHub Actions debugging in its own feature branch/PR which can then be squished down before merging, to avoid a million annoying commits in the main branch.

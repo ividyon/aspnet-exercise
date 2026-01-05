@@ -41,8 +41,12 @@ jobs:
         id: cache-nuget
         uses: actions/cache@v3
         with:
-          path: ${{ github.workspace }}/.nuget/packages
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          path: |
+            ${{ github.workspace }}/.nuget/packages
+            ${{ github.workspace }}/Server/**/obj
+            ${{ github.workspace }}/Tests/**/obj
+
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/obj/*') }}
 
       - name: Setup .NET
         if: ${{ steps.cache-dotnet-core.outputs.cache-hit != 'true' }}
