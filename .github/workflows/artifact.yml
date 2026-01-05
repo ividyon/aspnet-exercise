@@ -46,7 +46,8 @@ jobs:
             ${{ github.workspace }}/Server/**/obj
             ${{ github.workspace }}/Tests/**/obj
 
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/obj/*') }}
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: ${{ runner.os }}-nuget
 
       - name: Setup .NET
         if: ${{ steps.cache-dotnet-core.outputs.cache-hit != 'true' }}

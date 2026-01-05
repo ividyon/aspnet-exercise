@@ -30,7 +30,7 @@ professional setting involving the ASP.NET Core API and fundamental GitHub CI/CD
 
 ## My observations
 
-- Work started at ~3:20 PM and concluded at ~5:10 PM, so ~2h total.
+- Work started at ~3:20 PM and concluded at ~5:20 PM, so ~2h total. Some ~20min were spent updating Rider to the latest version. Another ~20min were spent eating dinner.
 - No AI was used during execution (with the exception of Rider's line auto-complete feature)
 - Most of the server functionality was already provided by the default ASP.NET Core Web API template.
 - It looks quite simple and pleasant to spin up an API with this framework!
